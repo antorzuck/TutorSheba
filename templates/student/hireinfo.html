@@ -1,0 +1,54 @@
+ {% extends 'base.html' %}
+ 
+ 
+ {% block body %}
+ 
+ 
+     <div class="container">
+     {% for order in allorders %}
+    <div class="card">
+  <div class="card-body">
+    <center>
+      <h4>Tutor you hired!</h4>
+      <h6 class="text-dark"></h6>
+    </center>
+    <br />
+    <br />
+    
+    
+    <h6 class="">Teacher:</h6>
+   
+    <h6 class="text-info">{{order.teacher}}</h6>
+    
+    <br />
+    
+       <h6 class="">City:</h6>
+   
+    <h6 class="text-info">{{order.city}}</h6>
+    
+    <br />
+           <h6 class="">Sellery:</h6>
+   
+    <h6 class="text-info">{{order.sellery}}</h6>
+    <br />
+    
+    <h6>Status:</h6>
+    {% if order.status %}
+     <h6> <span class="badge badge-success text-white">Accepted</span> </h6>
+     {% else %}
+      <h6> <span class="badge badge-warning">Pending</span> </h6>
+      {% endif %}
+    
+
+  </div>
+</div>
+{% endfor %}
+    </div>
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ {% endblock %}

@@ -1,0 +1,66 @@
+ {% extends 'base.html' %}
+ 
+ 
+ {% block body %}
+ 
+ 
+     <div class="container">
+     {% for order in orders %}
+    <div class="card">
+  <div class="card-body">
+    <center>
+      <h3>Order Information!</h3>
+      <h6 class="text-dark"></h6>
+    </center>
+    <br />
+    <br />
+    
+    
+    <h6 class="">Student:</h6>
+   
+    <h6 class="text-info">{{order.student}}</h6>
+    
+    <br />
+    
+       <h6 class="">City:</h6>
+   
+    <h6 class="text-info">{{order.city}}</h6>
+    
+    <br />
+           <h6 class="">Sellery:</h6>
+   
+    <h6 class="text-info">{{order.sellery}}</h6>
+    <br />
+     <h6 class="">Days in week:</h6>
+   
+    <h6 class="text-info">{{order.days}}</h6>
+    <br>
+    <h6>Status:</h6>
+    {% if order.status %}
+    <h6> <span class="text-white badge badge-success">Accepted</span> </h6>
+    {% else %}
+     <h6> <span class="text-white badge badge-warning">Pending</span> </h6>
+     {% endif %}
+     
+     {% if not order.status %}
+    <br>
+    <br />
+    
+    <form action="{% url 'acceptorder' order.id %}" method="POST">
+    {% csrf_token %}
+      <button class="btn btn-success w-100"type="submit">Accept</button>
+      
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+    </div>
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ {% endblock %}

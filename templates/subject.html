@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="container">
+
+<center><h5> {{count}} teachers in {{subject}} </h5></center>
+  <div class="row">
+  {% for t in teachers %}
+    <div class="my-2 col-12 col-md-6 col-lg-4">
+
+ <div class="bg-light card">
+  <div class="card-body">
+     <div class="circular">
+     {% if t.profile_pic %}
+       <img src="{{t.profile_pic.url}}" alt="" />
+       {% endif %}
+     </div>
+    <div class="float-right">
+    <a href="{% url 'hire' t.user %}" class="btn btn-sm btn-outline-dark">Hire</a>
+    </div>
+     
+     <h4 class="m-2"><span class="text-light">Hi</span>{{t.user}}</h4>
+     <div class="cbody">
+        <span class="text-light">hi</span> 🌎 {{t.city}}
+     </div>
+     <div>
+     <span class="ml-5 text-light">hi</span> 🗯 Good at {{t.subjects}}
+     </div>
+     <div>
+       <p class="mt-2">{{t.bio}}</p>
+     </div>
+  </div>
+</div>      
+     
+      
+    </div>
+      {% endfor %}
+    
+  </div>
+
+{% endblock %}

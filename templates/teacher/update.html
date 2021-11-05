@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+<div class="container">
+    
+      <div class="card">
+  <div class="card-body">
+   <center class="my-5"><h4>Complete Profile!</h4></center>
+ <form action="{% url 'tupdate' %}" method="POST" enctype="multipart/form-data">
+ {% csrf_token %}
+  <center class="my-3">
+   <div class="phodu">
+   {% if t.profile_pic %}
+   <img src="{{t.profile_pic.url}}" />
+     {% endif %}
+   </div>
+   </center>
+   <div class="input-group">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" name='dp' value="">
+    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  </div>
+</div>
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">City</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Dhaka, Bangladesh" value="{{t.city}}" name='c'>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Subjects</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" name='su'>
+    {% for i in s %}
+      <option>{{i.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Short bio</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name='bio'  rows="2" >{{t.bio}}</textarea>
+  </div>
+   
+   <button class="btn btn-success w-100" type="submit">Update</button>
+ </form>
+ 
+ 
+ 
+ 
+ 
+  </div>
+</div>
+      
+      
+      
+    </div>
+
+
+
+
+{% endblock %}

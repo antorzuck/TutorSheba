@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+
+
+    <div class="container">
+    <div class="card">
+  <div class="card-body">
+    <center>
+      <h4>Hire {{teacher.username}}!</h4>
+      <h6 class="my-4"></h6>
+    </center>
+    
+    <form class="" action="{% url 'hire' teacher %}" method="POST">
+    {% csrf_token %}
+      <label for="city">City</label>
+      <input class="form-control" type="text" name="c" placeholder="Enter city name" id="city"/>
+      
+      
+      <label for="days">Days in week</label>
+      
+      <input class="form-control" type="text" name="d" id="days" placeholder="How many days?"/>
+      
+      
+      
+    <label for="sellery">Sellery</label>
+      
+      <input class="form-control" type="text" name="s" id="sellery" placeholder="What will be sellery?"/>
+      <br />
+      
+      
+      <button class="btn btn-success w-100" type="submit">Hire</button>
+      
+      
+    </form>
+    
+    
+    
+  </div>
+</div>
+    </div>
+    
+
+
+
+
+
+{% endblock %}

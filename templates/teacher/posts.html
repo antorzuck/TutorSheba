@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="container">
+{% for post in posts %}
+<div class="card">
+  <div class="card-body">
+    <div class="circular">
+      <img src="{{post.user.student.profile_pic.url}}" alt="" />
+      
+    </div>
+    <h5 class="mt-3">{{post.user}}</h5>
+    <abbr title=""></abbr>
+    <br>
+    <h6 class="text-dark">City: {{post.city}}</h6>
+   
+        <h6 class="text-dark">Sellery: {{post.sellery}}</h6>
+        
+        <p>{{post.body}}</p>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock %}
